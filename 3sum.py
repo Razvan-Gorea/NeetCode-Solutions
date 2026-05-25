@@ -27,3 +27,5 @@ class Solution:
                 i += 1
 
         return results
+	# Time Compexity: N^2
+	# Space Complexity: N
