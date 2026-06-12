@@ -16,3 +16,5 @@ class Solution:
                 water_long = water_short
 
         return water_long
+	# Time Complexity: N
+	# Space Complexity: 1
