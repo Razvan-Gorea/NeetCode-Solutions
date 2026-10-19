@@ -1,20 +1,19 @@
 class Solution:
     def maxArea(self, heights: List[int]) -> int:
-        
-        start = 0
-        end = len(heights) - 1
-        water_long = 0
+        left_pointer = 0
+        right_pointer = len(heights) - 1
+        max_area = 0
 
-        while start < end:
-            water_short = min(heights[start], heights[end]) * (end - start)
-            if heights[start] < heights[end]:
-                start += 1
-            else:
-                end -= 1
+        while left_pointer < right_pointer:
+            width = right_pointer - left_pointer
+            height = min(heights[left_pointer], heights[right_pointer])
+            area = width * height
+
+            max_area = max(max_area, area)
             
-            if water_short > water_long:
-                water_long = water_short
-
-        return water_long
-	# Time Complexity: N
-	# Space Complexity: 1
+            if heights[left_pointer] < heights[right_pointer]:
+                left_pointer += 1
+            else:
+                right_pointer -= 1
+        
+        return max_area
